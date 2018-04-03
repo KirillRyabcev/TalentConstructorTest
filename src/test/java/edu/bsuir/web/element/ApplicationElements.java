@@ -1,5 +1,6 @@
 package edu.bsuir.web.element;
 
+import edu.bsuir.element.Element;
 import org.openqa.selenium.By;
 
 /**
@@ -9,39 +10,35 @@ public class ApplicationElements {
 
     public static final String URL = "http://testing.cld.iba.by/web/guest/recruiting/applications/-/applications/createApplication";
 
-    public static final By POSITION = By.xpath("//*[@id=\"name\"]");
-    public static final By DATE = By.xpath("//*[@id=\"plannedClosingDate\"]");
-    public static final By PRIORITY = By.xpath("//*[@id=\"priority-1\"]");
-    public static final By QUANTITY = By.xpath("//*[@id=\"quantity\"]");
-    public static final By CREATION_REASON = By.xpath("//*[@id=\"creationReason\"]");
-    public static final By CONTRACT_TYPE = By.xpath("//*[@id=\"contractType-2\"]");
-    public static final By SALARY = By.xpath("//*[@id=\"salary\"]");
-    public static final By CURRENCY = By.xpath("//*[@id=\"currency\"]");
-    public static final By CURRENCY_OPTION = By.xpath("//*[@id=\"currency\"]/option[3]");
-    public static final By JOBTYPE = By.xpath("//*[@id=\"jobType\"]");
-    public static final By JOBTYPE_OPTION = By.xpath("//*[@id=\"jobType\"]/option[2]");
-    public static final By EMPLOYEES = By.xpath("//*[@id=\"employees\"]");
-    public static final By BUSINESS_TRIP = By.xpath("//*[@id=\"businessTrip\"]");
-    public static final By TIMETABLE = By.xpath("//*[@id=\"timetable\"]");
-    public static final By PROBATION_PERIOD = By.xpath("//*[@id=\"probationPeriod\"]");
-    public static final By RESPONSIBILITIES = By.xpath("//*[@id=\"responsibilities\"]");
-    public static final By CANDIDATE_TYPE = By.xpath("//*[@id=\"candidateTypeExternal\"]");
-    public static final By EDUCATION = By.xpath("//*[@id=\"education\"]");
-    public static final By EDUCATION_OPTION = By.xpath("//*[@id=\"education\"]/option[4]");
-    public static final By EDUCATION_SPECIALIZATION = By.xpath("//*[@id=\"educationSpecialization\"]");
-    public static final By EXPERIENCE = By.xpath("//*[@id=\"experience\"]");
-    public static final By EXPERIENCE_OPTION = By.xpath("//*[@id=\"experience\"]/option[1]");
-    public static final By PRIORITY_WORKING_EXPERIENCE = By.xpath("//*[@id=\"priority.working.experience\"]");
-    public static final By UNDESIRABLE_WORKING_EXPERIENCE = By.xpath("//*[@id=\"undesirableWorkingExperience\"]");
-    public static final By REQUIRED_COMPETENCES = By.xpath("//*[@id=\"editrequiredCompetence\"]");
-    public static final By FIND_BUTTON = By.xpath("//*[@class=\"multiselect dropdown-toggle btn btn-default\"]");
-    public static final By PROGRAMMER_CHECKBOX = By.xpath("//*[@id=\"func-area-filtermultiselect-3\"]");
-    public static final By SUBDITEM = By.xpath("//*[@id=\"category_34\"]");
-    public static final By MARIADBITEM = By.xpath("//*[@id=\"competence_1515\"]");
-    public static final By OKBUTTON  = By.xpath("//*[@class=\"toolbar-content yui3-widget component toolbar\"]/button[2]");
-    public static final By REQUIRED_ITEM = By.xpath("//*[@id=\"editnotRequiredCompetence\"]");
-    public static final By MYSQLITEM  = By.xpath("//*[@id=\"competence_196\"]");
-    public static final By COMMENT = By.xpath("//*[@id=\"comment\"]");
-    public static final By SAVE  = By.xpath("//*[@id=\"save\"]");
+    public static final Element POSITION = new Element("Должность",By.xpath("//*[@id=\"name\"]"));
+    public static final Element DATE = new Element("Дата закрытия",By.xpath("//*[@id=\"plannedClosingDate\"]"));
+    public static final Element PRIORITY = new Element("Приоритет",By.xpath("//*[@id=\"priority-1\"]"));
+    public static final Element QUANTITY = new Element("Количество работников",By.xpath("//*[@id=\"quantity\"]"));
+    public static final Element CREATION_REASON = new Element("Причина создания",By.xpath("//*[@id=\"creationReason\"]"));
+    public static final Element CONTRACT_TYPE = new Element("Тип договора",By.xpath("//*[@id=\"contractType-2\"]"));
+    public static final Element SALARY = new Element("Зарплата",By.xpath("//*[@id=\"salary\"]"));
+    public static final Element CURRENCY = new Element("Валюта",By.xpath("//*[@id=\"currency\"]"));
+    public static final Element JOBTYPE = new Element("Тип занятости",By.xpath("//*[@id=\"jobType\"]"));
+    public static final Element EMPLOYEES = new Element("Наличие подчиненных",By.xpath("//*[@id=\"employees\"]"));
+    public static final Element BUSINESS_TRIP = new Element("Командировки",By.xpath("//*[@id=\"businessTrip\"]"));
+    public static final Element TIMETABLE = new Element("Расписание",By.xpath("//*[@id=\"timetable\"]"));
+    public static final Element PROBATION_PERIOD = new Element("Испытательный срок",By.xpath("//*[@id=\"probationPeriod\"]"));
+    public static final Element RESPONSIBILITIES = new Element("Обязанности",By.xpath("//*[@id=\"responsibilities\"]"));
+    public static final Element CANDIDATE_TYPE = new Element("Тип кандидата",By.xpath("//*[@id=\"candidateTypeExternal\"]"));
+    public static final Element EDUCATION = new Element("Образование",By.xpath("//*[@id=\"education\"]"));
+    public static final Element EDUCATION_SPECIALIZATION = new Element("Требуемое образование",By.xpath("//*[@id=\"educationSpecialization\"]"));
+    public static final Element EXPERIENCE = new Element("Опыт работы",By.xpath("//*[@id=\"experience\"]"));
+    public static final Element PRIORITY_WORKING_EXPERIENCE = new Element("Желательные организации",By.xpath("//*[@id=\"priority.working.experience\"]"));
+    public static final Element UNDESIRABLE_WORKING_EXPERIENCE = new Element("Нежелательные организации",By.xpath("//*[@id=\"undesirableWorkingExperience\"]"));
+    public static final Element REQUIRED_COMPETENCES = new Element("Требуемы компетенции",By.xpath("//*[@id=\"editrequiredCompetence\"]"));
+    public static final Element FIND_BUTTON = new Element("Кнопка поиска",By.xpath("//*[@class=\"multiselect dropdown-toggle btn btn-default\"]"));
+    public static final Element PROGRAMMER_CHECKBOX = new Element("Программист Чекбокс",By.xpath("//*[@id=\"func-area-filtermultiselect-3\"]"));
+    public static final Element SUBDITEM = new Element("СУБД",By.xpath("//*[@id=\"category_34\"]"));
+    public static final Element MARIADBITEM = new Element("MARIADB",By.xpath("//*[@id=\"competence_1515\"]"));
+    public static final Element OKBUTTON  = new Element("OK",By.xpath("//*[@class=\"toolbar-content yui3-widget component toolbar\"]/button[2]"));
+    public static final Element REQUIRED_ITEM = new Element("Желательные компетенции",By.xpath("//*[@id=\"editnotRequiredCompetence\"]"));
+    public static final Element MYSQLITEM  = new Element("MYSQL",By.xpath("//*[@id=\"competence_196\"]"));
+    public static final Element COMMENT = new Element("Комментарий",By.xpath("//*[@id=\"comment\"]"));
+    public static final Element SAVE  = new Element("Сохранить",By.xpath("//*[@id=\"save\"]"));
 
 }

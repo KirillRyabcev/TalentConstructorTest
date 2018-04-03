@@ -1,10 +1,13 @@
 package edu.bsuir.web.page;
 
 import edu.bsuir.driver.WebDriverSingleton;
+import edu.bsuir.element.Element;
 import edu.bsuir.web.element.ApplicationElements;
+import edu.bsuir.web.element.LoginElements;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 import javax.swing.*;
 
@@ -19,158 +22,100 @@ public class ApplicatonPage {
     }
 
     public void typePosition(String position){
-        WebElement element = driver.findElement(ApplicationElements.POSITION);
-        element.clear();
-        element.sendKeys(position);
+        ApplicationElements.POSITION.type(position);
     }
     public void typeDate(String date){
-        WebElement element = driver.findElement(ApplicationElements.DATE);
-        element.clear();
-        element.sendKeys(date);
+        ApplicationElements.DATE.type(date);
     }
     public void clickPriority(){
-        WebElement element = driver.findElement(ApplicationElements.PRIORITY);
-        element.click();
+        ApplicationElements.PRIORITY.click();
     }
     public void typeQuantity(String quantity){
-        WebElement element = driver.findElement(ApplicationElements.QUANTITY);
-        element.clear();
-        element.sendKeys(quantity);
+        ApplicationElements.QUANTITY.type(quantity);
     }
     public void typeCreationReason(String reason){
-        WebElement element = driver.findElement(ApplicationElements.CREATION_REASON);
-        element.clear();
-        element.sendKeys(reason);
+        ApplicationElements.CREATION_REASON.type(reason);
     }
     public void clickContractType(){
-        WebElement element = driver.findElement(ApplicationElements.CONTRACT_TYPE);
-        element.click();
+        ApplicationElements.CONTRACT_TYPE.click();
     }
     public void typeSalary(String salary){
-        WebElement element = driver.findElement(ApplicationElements.SALARY);
-        element.clear();
-        element.sendKeys(salary);
+        ApplicationElements.SALARY.type(salary);
     }
-    public void clickCurrency(){
-        WebElement element = driver.findElement(ApplicationElements.CURRENCY);
-        element.click();
+    public void selectCurrencyByText(String value){
+        Select select = new Select(ApplicationElements.CURRENCY.getWebElement());
+        select.selectByVisibleText(value);
     }
-    public void clickCurrencyOption(){
-        WebElement element = driver.findElement(ApplicationElements.CURRENCY_OPTION);
-        element.click();
-    }
-    public void clickJobType(){
-        WebElement element = driver.findElement(ApplicationElements.JOBTYPE);
-        element.click();
-    }
-    public void clickJobTypeOption(){
-        WebElement element = driver.findElement(ApplicationElements.JOBTYPE_OPTION);
-        element.click();
+    public void selectJobTypeByValue(String value){
+        Select select = new Select(ApplicationElements.JOBTYPE.getWebElement());
+        select.selectByValue(value);
     }
     public void typeEmployees(String employees){
-        WebElement element = driver.findElement(ApplicationElements.EMPLOYEES);
-        element.clear();
-        element.sendKeys(employees);
+        ApplicationElements.EMPLOYEES.type(employees);
     }
     public void typeBusinessTrip(String trip){
-        WebElement element = driver.findElement(ApplicationElements.BUSINESS_TRIP);
-        element.clear();
-        element.sendKeys(trip);
+        ApplicationElements.BUSINESS_TRIP.type(trip);
     }
     public void typeTimetable(String timetable){
-        WebElement element = driver.findElement(ApplicationElements.TIMETABLE);
-        element.clear();
-        element.sendKeys(timetable);
+        ApplicationElements.TIMETABLE.type(timetable);
     }
     public void typeProbationPeriod(String period){
-        WebElement element = driver.findElement(ApplicationElements.PROBATION_PERIOD);
-        element.clear();
-        element.sendKeys(period);
+        ApplicationElements.PROBATION_PERIOD.type(period);
     }
     public void typeResponsibilities(String responsibilities){
-        WebElement element = driver.findElement(ApplicationElements.RESPONSIBILITIES);
-        element.clear();
-        element.sendKeys(responsibilities);
+        ApplicationElements.RESPONSIBILITIES.type(responsibilities);
     }
     public void clickCandidateType(){
-        WebElement element = driver.findElement(ApplicationElements.CANDIDATE_TYPE);
-        element.click();
+        ApplicationElements.CANDIDATE_TYPE.click();
     }
-    public void clickEducation(){
-        WebElement element = driver.findElement(ApplicationElements.EDUCATION);
-        element.click();
-    }
-    public void clickEducationOption(){
-        WebElement element = driver.findElement(ApplicationElements.EDUCATION_OPTION);
-        element.click();
+    public void selectEducationByText(String value){
+        Select select = new Select(ApplicationElements.EDUCATION.getWebElement());
+        select.selectByVisibleText(value);
     }
     public void typeRequiredEducation(String education){
-        WebElement element = driver.findElement(ApplicationElements.EDUCATION_SPECIALIZATION);
-        element.clear();
-        element.sendKeys(education);
+        ApplicationElements.EDUCATION_SPECIALIZATION.type(education);
     }
-    public void clickExperience(){
-        WebElement element = driver.findElement(ApplicationElements.EXPERIENCE);
-        element.click();
-    }
-    public void clickExperienceOption(){
-        WebElement element = driver.findElement(ApplicationElements.EXPERIENCE_OPTION);
-        element.click();
+    public void selectExperienceByText(String value){
+        Select select = new Select(ApplicationElements.EXPERIENCE.getWebElement());
+        select.selectByVisibleText(value);
     }
     public void typeDesirableOrganization(String organizations){
-        WebElement element = driver.findElement(ApplicationElements.PRIORITY_WORKING_EXPERIENCE);
-        element.clear();
-        element.sendKeys(organizations);
+        ApplicationElements.PRIORITY_WORKING_EXPERIENCE.type(organizations);
     }
     public void typeUnesirableOrganization(String organizations){
-        WebElement element = driver.findElement(ApplicationElements.UNDESIRABLE_WORKING_EXPERIENCE);
-        element.clear();
-        element.sendKeys(organizations);
+        ApplicationElements.UNDESIRABLE_WORKING_EXPERIENCE.type(organizations);
     }
     public void clickRequiredCompetence(){
-        WebElement element = driver.findElement(ApplicationElements.REQUIRED_COMPETENCES);
-        element.click();
+        ApplicationElements.REQUIRED_COMPETENCES.click();
     }
     public void clickFindButton(){
-        WebElement element = driver.findElement(ApplicationElements.FIND_BUTTON);
-        element.click();
+        ApplicationElements.FIND_BUTTON.click();
     }
     public void clickProgrammersCheckbox(){
-        WebElement element = driver.findElement(ApplicationElements.PROGRAMMER_CHECKBOX);
-        element.click();
+        ApplicationElements.PROGRAMMER_CHECKBOX.click();
     }
     public void clickSubdItem(){
-        WebElement element = driver.findElement(ApplicationElements.SUBDITEM);
-        element.click();
+        ApplicationElements.SUBDITEM.click();
     }
     public void clickMariaDBItem(){
-        Actions action = new Actions(driver);
-        WebElement element = driver.findElement(ApplicationElements.MARIADBITEM);
-        action.moveToElement(element).perform();
-        action.doubleClick(element).perform();
+        ApplicationElements.MARIADBITEM.moveToElement();
+        ApplicationElements.MARIADBITEM.doubleClick();;
     }
     public void clickOkButton(){
-        WebElement element = driver.findElement(ApplicationElements.OKBUTTON);
-        element.click();
+        ApplicationElements.OKBUTTON.click();
     }
     public void clickDesiredCompetance(){
-        WebElement element = driver.findElement(ApplicationElements.REQUIRED_ITEM);
-        element.click();
+        ApplicationElements.REQUIRED_ITEM.click();
     }
     public void clickMySQLItem(){
-        Actions action = new Actions(driver);
-        WebElement element = driver.findElement(ApplicationElements.MYSQLITEM);
-        action.moveToElement(element).perform();
-        action.doubleClick(element).perform();
+        ApplicationElements.MYSQLITEM.moveToElement();
+        ApplicationElements.MYSQLITEM.doubleClick();
     }
     public void typeComment(String comment){
-        WebElement element = driver.findElement(ApplicationElements.COMMENT);
-        element.clear();
-        element.sendKeys(comment);
+        ApplicationElements.COMMENT.type(comment);
     }
     public void clickSave(){
-        WebElement element = driver.findElement(ApplicationElements.SAVE);
-        element.click();
+        ApplicationElements.SAVE.click();
     }
 
 }

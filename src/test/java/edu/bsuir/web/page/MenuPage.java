@@ -18,18 +18,14 @@ public class MenuPage {
         driver.get(MenuElements.URL);
     }
 
-
     public void clickMain(){
-        WebElement element = driver.findElement(MenuElements.MAIN);
-        element.click();
+        MenuElements.MAIN.click();
     }
     public void clickRecruitment(){
-        WebElement element = driver.findElement(MenuElements.RECRUITMENT);
-        element.click();
+        MenuElements.RECRUITMENT.click();
     }
     public void clickReferenceBooks(){
-        WebElement element = driver.findElement(MenuElements.REFERENCE_BOOKS);
-        element.click();
+        MenuElements.REFERENCE_BOOKS.click();
     }
 
 }

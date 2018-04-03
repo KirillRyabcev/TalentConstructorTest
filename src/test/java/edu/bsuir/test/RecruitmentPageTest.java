@@ -1,16 +1,14 @@
 package edu.bsuir.test;
 
 import edu.bsuir.driver.WebDriverSingleton;
+import edu.bsuir.web.Login;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Acer on 30.03.2018.
@@ -20,17 +18,9 @@ public class RecruitmentPageTest {
     private WebDriver driver = WebDriverSingleton.getInstance();
 
     @Before
-    public void login() {
-        driver.get("http://testing.cld.iba.by/web/guest/home");
-
-        WebElement searchField = driver.findElement(By.id("_58_login"));
-        searchField.sendKeys("kabanov@tc.by");
-
-        WebElement passwordField = driver.findElement(By.id("_58_password"));
-        passwordField.sendKeys("welcome");
-
-        WebElement button = driver.findElement(By.xpath("//div[@class = 'button-holder ']//button"));
-        button.sendKeys(Keys.RETURN);
+    public void login() throws Exception{
+        Login l = new Login();
+        l.login("Начальник отдела");
     }
 
     @Test

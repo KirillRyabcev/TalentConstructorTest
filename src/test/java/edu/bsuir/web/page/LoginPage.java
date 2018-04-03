@@ -16,20 +16,15 @@ public class LoginPage {
     }
 
     public void typeUsername(String username){
-        WebElement element = driver.findElement(LoginElements.USERNAME);
-        element.clear();
-        element.sendKeys(username);
+      LoginElements.USERNAME.type(username);
     }
 
     public void typePassword(String password){
-        WebElement element = driver.findElement(LoginElements.PASSWORD);
-        element.clear();
-        element.sendKeys(password);
+        LoginElements.PASSWORD.type(password);
     }
 
     public void clickLoginButton(){
-        WebElement element = driver.findElement(LoginElements.LOGIN_BUTTON);
-        element.click();
+        LoginElements.LOGIN_BUTTON.click();
     }
 
     public void clickLoginButton2(){

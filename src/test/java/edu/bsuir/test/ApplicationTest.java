@@ -1,13 +1,12 @@
 package edu.bsuir.test;
 
 import edu.bsuir.driver.WebDriverSingleton;
+import edu.bsuir.web.Login;
 import edu.bsuir.web.page.ApplicatonPage;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -20,19 +19,12 @@ public class ApplicationTest {
     ApplicatonPage ap = new ApplicatonPage();
 
     @Before
-    public void comeToApplicationPage() throws InterruptedException{
-        driver.get("http://testing.cld.iba.by/web/guest/home");
-
-        WebElement searchField = driver.findElement(By.id("_58_login"));
-        searchField.sendKeys("kabanov@tc.by");
-        WebElement passwordField = driver.findElement(By.id("_58_password"));
-        passwordField.sendKeys("welcome");
-
-        WebElement button = driver.findElement(By.xpath("//div[@class = 'button-holder ']//button"));
-        button.sendKeys(Keys.RETURN);
-
-        Thread.sleep(5000);
+    public void comeToApplicationPage() throws Exception{
+        Login l = new Login();
+        l.login("Начальник отдела");
+        Thread.sleep(3000);
         WebElement recruitButton = driver.findElement(By.xpath("/html/body/div/div[2]/div[1]/nav/ul/li[2]/a"));
+        Thread.sleep(3000);
         recruitButton.click();
     }
 
@@ -42,7 +34,7 @@ public class ApplicationTest {
         applicationButton.click();
 
         String position = "QA Engineer";
-        String date = "03.04.2018";
+        String date = "10.04.2018";
         String priority = "средний";
         String countOfWorkers = "20";
         String causeOfVacancy = "Нехватка сотрудников";
@@ -50,6 +42,7 @@ public class ApplicationTest {
         String salary = "500";
         String currency = "EUR";
         String typeOfEmployment = "частичная занятость";
+        String typeOfEmploymentValue = "2";
         String employees = "Нет";
         String businessTrip = "Возможно";
         String timetable = "с 9-00 до 17-00";
@@ -70,38 +63,32 @@ public class ApplicationTest {
 
         /************************************Filling in forms*******************************/
 
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         ap.enterApplicationPage();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         ap.typePosition(position);
-        Thread.sleep(3000);
         ap.typeDate(date);
         ap.clickPriority();
         ap.typeQuantity(countOfWorkers);
         ap.typeCreationReason(causeOfVacancy);
         ap.clickContractType();
         ap.typeSalary(salary);
-        ap.clickCurrency();
-        ap.clickCurrencyOption();
-        ap.clickJobType();
-        ap.clickJobTypeOption();
+        ap.selectCurrencyByText(currency);
+        ap.selectJobTypeByValue(typeOfEmploymentValue);
         ap.typeEmployees(employees);
         ap.typeBusinessTrip(businessTrip);
         ap.typeTimetable(timetable);
         ap.typeProbationPeriod(probationPeriod);
         ap.typeResponsibilities(responsibilities);
         ap.clickCandidateType();
-        ap.clickEducation();
-        ap.clickEducationOption();
+        ap.selectEducationByText(education);
         ap.typeRequiredEducation(requiredEducation);
-        ap.clickExperience();
-        ap.clickExperienceOption();
+        ap.selectExperienceByText(experience);
         ap.typeDesirableOrganization(priorityOrganization);
         ap.typeUnesirableOrganization(undesirableOrganization);
         ap.clickRequiredCompetence();
         ap.clickFindButton();
         ap.clickProgrammersCheckbox();
-        Thread.sleep(2000);
         ap.clickSubdItem();
         Thread.sleep(2000);
         ap.clickMariaDBItem();
@@ -110,7 +97,6 @@ public class ApplicationTest {
         ap.clickDesiredCompetance();
         ap.clickFindButton();
         ap.clickProgrammersCheckbox();
-        Thread.sleep(2000);
         ap.clickSubdItem();
         Thread.sleep(2000);
         ap.clickMySQLItem();
@@ -121,7 +107,7 @@ public class ApplicationTest {
 
         /************************************Assertions**********************************/
 
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         Assert.assertEquals(position,driver.findElement(By.xpath("//*[@class=\"application-name\"]")).getText());
         Assert.assertEquals(true, driver.findElement(By.xpath("//*[@class=\"pull-right\"]")).getText().contains(date));
         Assert.assertEquals(true, driver.findElement(By.xpath("//*[@class=\"priority-label label label-warning\"]")).getText().contains(priority));
@@ -149,8 +135,4 @@ public class ApplicationTest {
         Assert.assertEquals(desirableCompetences, driver.findElement(By.xpath("//*[@id=\"allCompetencies\"]/div[2]/div/table/tbody/tr[2]/td/div")).getText());
 
     }
-
-    //@After
-    //public void shutDown() { driver.close(); }
-
 }
